@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="./styles/main.css">
 </head>
 
 <body>
@@ -12,8 +13,27 @@
     <main>
         <header>Logo goes here</header>
         <h1>Journal Entries for NSS Student Devon Cox</h1>
-<h2>Create A New Journal Entry</h2>
-        <form>Form Goes here</form>
+        <h2>Daily Journal</h2>
+        <section class="journal-form">
+        <form action="">
+            <fieldset>
+                <label for="journalDate">Date of Entry</label>
+                <input type="date" name="journalDate" id="journalDate"><br><br>
+                <label for="concepts">Concepts Covered:</label>
+                <textarea id="concepts" name="concepts"></textarea><br><br>
+                <label for="entry">Journal Entry:</label>
+                <textarea id="entry" name="entry"></textarea><br><br>
+                <label for="mood">Mood for the day:</label>
+                <select name="mood" id="mood">
+                    <option value="happy">Happy</option>
+                    <option value="excited">Excited</option>
+                    <option value="frustrated">Frustrated</option>
+                    <option value="sad">Sad</option>
+                </select><br><br>
+                <input type="submit" value="Record Journal Entry">
+            </fieldset>
+        </form>
+    </section>
         <h2>Previous Journal Entries</h2>
         <article>
             <ul class="entries">
@@ -22,12 +42,13 @@
                 <li>Link to previous entry</li>
                 <li>Link to previous entry</li>
             </ul>
-            
-            
+
+
         </article>
-        
+
         <footer>&copy; 2020 Devon Cox Github Link</footer>
     </main>
-    
+
 </body>
+
 </html>
