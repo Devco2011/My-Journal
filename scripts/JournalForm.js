@@ -1,8 +1,37 @@
 import { getEntries, useJournalEntries } from "./JournalDataProvider.js"
+import { saveJournalEntry } from "./JournalDataProvider.js"
 
 const contentTarget = document.querySelector(".journal-form");
+const eventHub = document.querySelector(".container");
 
-export const JournalForm = () => {
+eventHub.addEventListener("click", clickEvent => {
+
+    if (clickEvent.target.id === "saveEntry") {
+
+        const entryDate = document.querySelector("#journalDate")
+        const entryConcepts = document.querySelector("#concepts")
+        const entryText = document.querySelector("#entry")
+        const entryMood = document.querySelector("#mood")
+
+        //if (entryText.value !== "0") {
+        const newEntry = {
+            date: entryDate.value,
+            concept: entryConcepts.value,
+            entry: entryText.value,
+            mood: entryMood.value
+        }
+        saveJournalEntry(newEntry);
+
+
+
+    }
+
+
+})
+
+
+
+const render = () => {
     contentTarget.innerHTML = `
     <form action="">
     <fieldset>
@@ -19,8 +48,15 @@ export const JournalForm = () => {
             <option value="frustrated">Frustrated</option>
             <option value="sad">Sad</option>
         </select><br><br>
-        <input type="submit" value="Record Journal Entry">
+        <button type="button" id="saveEntry">Record Journal Entry</button>
     </fieldset>
 </form>
     `
+}
+export const JournalForm = () => {
+    getEntries()
+        .then(() => {
+            render(useJournalEntries());
+        })
+
 }
