@@ -5,21 +5,42 @@
       "date": "07/24/2025",
       "concept": "HTML & CSS",
       "entry": "We talked about HTML components and how to make grid layouts with Flexbox in CSS.",
-      "mood": "Ok"
+      "moodId": 2
     },
     {
       "id": 2,
       "date": "08/24/2020",
       "concept": "Functions",
       "entry": "Worked on a group project with Matt and Martin using JS to automate country info for a travel agency",
-      "mood": "Ok"
+      "moodId": 2
     },
     {
       "id": 3,
       "date": "08/25/2020",
       "concept": "JS Functions, methods",
       "entry": "Completed and presented group project.",
-      "mood": "Ok"
+      "moodId": 1
+    },
+    {
+      "date": "2020-09-22",
+      "concept": "Recording Journal Moods",
+      "entry": "Rick helped me figure out how to get my journal moods to render properly in the dropdown and in the json db.",
+      "moodId": 1,
+      "id": 4
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "label": "Happy"
+    },
+    {
+      "id": 2,
+      "label": "Just Ok"
+    },
+    {
+      "id": 3,
+      "label": "Frustrated"
     }
   ]
 }

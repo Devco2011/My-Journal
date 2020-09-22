@@ -1,5 +1,6 @@
-import { getEntries, useJournalEntries } from "./JournalDataProvider.js"
+//import { getEntries, useJournalEntries } from "./JournalDataProvider.js"
 import { saveJournalEntry } from "./JournalDataProvider.js"
+import { getMoods, useMoods } from "./MoodProvider.js"
 
 const contentTarget = document.querySelector(".journal-form");
 const eventHub = document.querySelector(".container");
@@ -18,9 +19,10 @@ eventHub.addEventListener("click", clickEvent => {
             date: entryDate.value,
             concept: entryConcepts.value,
             entry: entryText.value,
-            mood: entryMood.value
+            moodId: parseInt(entryMood.value)
         }
         saveJournalEntry(newEntry);
+
 
 
 
@@ -31,7 +33,8 @@ eventHub.addEventListener("click", clickEvent => {
 
 
 
-const render = () => {
+
+const render = (allMoods) => {
     contentTarget.innerHTML = `
     <form action="">
     <fieldset>
@@ -43,10 +46,12 @@ const render = () => {
         <textarea id="entry" name="entry"></textarea><br><br>
         <label for="mood">Mood for the day:</label>
         <select name="mood" id="mood">
-            <option value="happy">Happy</option>
-            <option value="excited">Excited</option>
-            <option value="frustrated">Frustrated</option>
-            <option value="sad">Sad</option>
+        ${allMoods.map(
+        (mood) => {
+            return `<option value="${mood.id}">${mood.label}</option>`
+        }
+    ).join("")
+        }
         </select><br><br>
         <button type="button" id="saveEntry">Record Journal Entry</button>
     </fieldset>
@@ -54,9 +59,10 @@ const render = () => {
     `
 }
 export const JournalForm = () => {
-    getEntries()
+
+    getMoods()
         .then(() => {
-            render(useJournalEntries());
+            render(useMoods());
         })
 
 }
