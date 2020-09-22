@@ -6,6 +6,7 @@
  */
 import { useJournalEntries, getEntries } from "./JournalDataProvider.js"
 import { JournalEntry } from "./JournalEntry.js"
+import { getMoods, useMoods } from "./MoodProvider.js"
 
 // DOM reference to where all entries will be rendered
 const entryLog = document.querySelector("#entryLog")
@@ -27,6 +28,6 @@ export const EntryListComponent = () => {
 
 eventHub.addEventListener("journalStateChanged", () => {
     const newEntry = useJournalEntries()
-    render(newEntry)
+    render(newEntry, useMoods())
 })
 

@@ -27,6 +27,13 @@
       "entry": "Rick helped me figure out how to get my journal moods to render properly in the dropdown and in the json db.",
       "moodId": 1,
       "id": 4
+    },
+    {
+      "date": "2020-09-22",
+      "concept": "Fixed the html rep",
+      "entry": "Fixed Html representation of the journal entries to include the mood label instead of ID number.",
+      "moodId": 1,
+      "id": 5
     }
   ],
   "moods": [
